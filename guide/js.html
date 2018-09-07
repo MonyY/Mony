@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS | Mony</title>
+    <meta name="description" content="说点什么好呢...">
+    <link rel="icon" href="/Mony/logo.jpg">
+    
+    <link rel="preload" href="/Mony/assets/css/0.styles.e583f4b9.css" as="style"><link rel="preload" href="/Mony/assets/js/app.70cf19de.js" as="script"><link rel="preload" href="/Mony/assets/js/3.5487e33a.js" as="script"><link rel="prefetch" href="/Mony/assets/js/4.709d281b.js"><link rel="prefetch" href="/Mony/assets/js/1.1f0d044a.js"><link rel="prefetch" href="/Mony/assets/js/2.9d11b48d.js"><link rel="prefetch" href="/Mony/assets/js/5.771c7f7a.js"><link rel="prefetch" href="/Mony/assets/js/6.1d3f8830.js"><link rel="prefetch" href="/Mony/assets/js/7.8859d96a.js"><link rel="prefetch" href="/Mony/assets/js/8.45a76ec2.js"><link rel="prefetch" href="/Mony/assets/js/9.2db66b74.js">
+    <link rel="stylesheet" href="/Mony/assets/css/0.styles.e583f4b9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Mony/" class="home-link router-link-active"><!----> <span class="site-name">Mony</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Mony/" class="nav-link">首页</a></div><div class="nav-item"><a href="/Mony/information/" class="nav-link">见闻</a></div><div class="nav-item"><a href="/Mony/guide/" class="nav-link router-link-active">积累</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Mony/" class="nav-link">首页</a></div><div class="nav-item"><a href="/Mony/information/" class="nav-link">见闻</a></div><div class="nav-item"><a href="/Mony/guide/" class="nav-link router-link-active">积累</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Mony/guide/" class="sidebar-link">HTTP协议</a></li><li><a href="/Mony/guide/js.html" class="active sidebar-link">JS</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Mony/guide/js.html#fetch-api" class="sidebar-link">Fetch API</a></li></ul></li><li><a href="/Mony/guide/css.html" class="sidebar-link">CSS</a></li><li><a href="/Mony/guide/vue.html" class="sidebar-link">Vue</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="js"><a href="#js" aria-hidden="true" class="header-anchor">#</a> JS</h1> <h2 id="fetch-api"><a href="#fetch-api" aria-hidden="true" class="header-anchor">#</a> Fetch API</h2> <h3 id="fetch规范与jquery-ajax-主要有两种方式的不同"><a href="#fetch规范与jquery-ajax-主要有两种方式的不同" aria-hidden="true" class="header-anchor">#</a> fetch规范与jQuery.ajax()主要有两种方式的不同</h3> <ol><li>当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。</li> <li>默认情况下，fetch 不会从服务端发送或接收任何 cookies, 如果站点依赖于用户 session，则会导致未经认证的请求要发送 cookies，必须设置 credentials 选项）。</li></ol> <h3 id="fetch支持的请求参数"><a href="#fetch支持的请求参数" aria-hidden="true" class="header-anchor">#</a> fetch支持的请求参数</h3> <ul><li>fetch() 接受第二个可选参数，一个可以控制不同配置的 init 对象：</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token function">postData</span><span class="token punctuation">(</span><span class="token string">'http://example.com/answer'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>answer<span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// JSON from `response.json()` call</span>
+  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">function</span> <span class="token function">postData</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Default options are marked with *</span>
+    <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      body<span class="token punctuation">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// must match 'Content-Type' header</span>
+      cache<span class="token punctuation">:</span> <span class="token string">'no-cache'</span><span class="token punctuation">,</span> <span class="token comment">// *default, no-cache, reload, force-cache, only-if-cached</span>
+      credentials<span class="token punctuation">:</span> <span class="token string">'same-origin'</span><span class="token punctuation">,</span> <span class="token comment">// include, same-origin, *omit</span>
+      headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'user-agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/4.0 MDN Example'</span><span class="token punctuation">,</span>
+        <span class="token string">'content-type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      method<span class="token punctuation">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span> <span class="token comment">// *GET, POST, PUT, DELETE, etc.</span>
+      mode<span class="token punctuation">:</span> <span class="token string">'cors'</span><span class="token punctuation">,</span> <span class="token comment">// no-cors, cors, *same-origin</span>
+      redirect<span class="token punctuation">:</span> <span class="token string">'follow'</span><span class="token punctuation">,</span> <span class="token comment">// manual, *follow, error</span>
+      referrer<span class="token punctuation">:</span> <span class="token string">'no-referrer'</span><span class="token punctuation">,</span> <span class="token comment">// *client, no-referrer</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// parses response to JSON</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="发送带凭据的请求"><a href="#发送带凭据的请求" aria-hidden="true" class="header-anchor">#</a> 发送带凭据的请求</h3> <div class="language-js extra-class"><div class="highlight-lines"><br><br><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><br><br></div><pre class="language-js"><code>  <span class="token comment">//让浏览器发送包含凭据的请求（即使是跨域源）。</span>
+  <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://example.com'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    credentials<span class="token punctuation">:</span> <span class="token string">'include'</span>  
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">//只想在请求URL与调用脚本位于同一起源处时发送凭据。</span>
+  <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://example.com'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    credentials<span class="token punctuation">:</span> <span class="token string">'same-origin'</span>  
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">//确保浏览器不在请求中包含凭据。</span>
+  <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://example.com'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    credentials<span class="token punctuation">:</span> <span class="token string">'omit'</span>  
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">9/7/2018, 5:53:19 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/Mony/guide/" class="prev router-link-active">
+          HTTP协议
+        </a></span> <span class="next"><a href="/Mony/guide/css.html">
+          CSS
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/Mony/assets/js/3.5487e33a.js" defer></script><script src="/Mony/assets/js/app.70cf19de.js" defer></script>
+  </body>
+</html>
